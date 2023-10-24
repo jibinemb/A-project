@@ -1,0 +1,69 @@
+
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                background-image: url('https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .table {
+                background-color: rgba(255, 255, 255, 1);
+            }
+            .table thead {
+                background-color: #000; /* Black background for the table header */
+                color: #fff; /* White text color for the table header */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Recommended Hotels</h1>
+             <table class="table table-bordered table-striped table-hover> 
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>hotelname</th>
+      <th>distance</th>
+      <th>roomtype_x</th>
+      <th>address</th>
+      <th>city</th>
+      <th>onsiterate</th>
+      <th>maxoccupancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hotel Mariahilf</td>
+      <td>3.911139</td>
+      <td>Single Room</td>
+      <td>Lilienstr. 83</td>
+      <td>munich</td>
+      <td>246.83</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Hotel Kavun</td>
+      <td>1.629117</td>
+      <td>Single Room</td>
+      <td>Landwehrstr. 56</td>
+      <td>munich</td>
+      <td>133.23</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+            <button class="btn btn-primary" onclick="location.href='/'">Try Another?</button>
+        </div>
+    </body>
+    </html>
+    

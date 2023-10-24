@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hotel Recommender</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style type="text/css">
+        body {
+            background-image: url('https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="text-center">
+    <div class="container mt-5">
+        <h1 class="mb-4">Hotel Recommender</h1>
+        <form action="." method="post">
+            <div class="form-group">
+                <label for="city">City:</label>
+                <select id="city" name="city" class="form-control" required onchange="populateAddressOptions()">
+                    <option value="London">London</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Munich">Munich</option>
+                    <!-- <option value="Italy">Italy</option> -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="add">Address:</label>
+                <select id="address" name="add" class="form-control" required>
+                    <!-- Address options will be populated dynamically here -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nec">Necessity:</label>
+                <input type="text" id="nec" name="nec" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="g">Number of Guests:</label>
+                <input type="text" id="g" name="g" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function populateAddressOptions() {
+            var citySelect = document.getElementById("city");
+            var addressSelect = document.getElementById("address");
+            var selectedCity = citySelect.value;
+
+            // Clear existing options
+            addressSelect.innerHTML = "";
+
+            var addresses = {
+                London: [
+                    "121 Sussex Gardens",
+                    "Brooklands Drive",
+                    "31-33 Mansfield Road, Ilford",
+                    "163 Marsh Wall",
+                    "24 Upper Berkeley Street",
+                    "18 Lodge Road, St. John's Wood"
+                ],
+                Paris: [
+                    "4, rue de Dunkerque",
+                    "55 rue Monge",
+                    "6 rue Chateaubriand",
+                    "Avenue de la Convention - Rue Rene Goscinny",
+                    "26 Rue De Picardie",
+                    "1 rue Geoffroy Marie"
+                ],
+                Munich: [
+                    "Waltherstrasse 33",
+                    "Landsberger Strasse 112",
+                    "Schwanthalerstrasse 58-60",
+                    "Michaeliburgstrasse 21",
+                    "Laimer Strasse 40"
+                    
+                ],
+                // Italy: [
+                //     "Canazei",
+                //     "Enna",
+                //     "Taormina",
+                //     "Venice",
+                //     "San Felice del Benaco",
+                //     "Sannicola",
+                //     "Porto San Giorgio",
+                //     "Vasto"
+                // ]
+            };
+
+            var selectedAddresses = addresses[selectedCity];
+
+            // Populate address options based on the selected city
+            if (selectedAddresses) {
+                selectedAddresses.forEach(function (address) {
+                    var option = document.createElement("option");
+                    option.value = address;
+                    option.text = address;
+                    addressSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Initial population of address options when the page loads
+        populateAddressOptions();
+    </script>
+</body>
+
+</html>
